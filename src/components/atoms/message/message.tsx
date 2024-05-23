@@ -1,7 +1,7 @@
 import { FC, ReactElement } from 'react';
 import { clsx } from 'clsx';
 import { match } from 'ts-pattern';
-import { TMessage } from '@libs/entities/common';
+import { TMessage } from '@/entities';
 import { Icon } from '@iconify/react';
 
 export const Message: FC<TMessage> = (props): ReactElement => {

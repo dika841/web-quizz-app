@@ -1,6 +1,6 @@
 
-import { Label, Message } from '@libs/components/atoms';
-import { TFieldSet } from '@libs/entities/common';
+import { Label, Message } from '@/components';
+import { TFieldSet } from '@/entities';
 import { FC, ReactElement } from 'react';
 import { match } from 'ts-pattern';
 

@@ -1,6 +1,6 @@
 
-import { FieldText } from '@libs/components/molecules';
-import { TControlledInput } from '@libs/entities/common';
+import { FieldText } from '@/components';
+import { TControlledInput } from '@/entities';
 import { ReactElement } from 'react';
 import { FieldValues, useController } from 'react-hook-form';
 

@@ -7,8 +7,7 @@
     "baseUrl": ".",
     "skipLibCheck": true,
     "paths": {
-      "@/*": ["./src"],
-      "@libs/*": ["src/libs/*"], 
+      "@/*": ["./src/*"],
     },
 
     /* Bundler mode */

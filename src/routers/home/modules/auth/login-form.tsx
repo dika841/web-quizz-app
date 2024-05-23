@@ -1,12 +1,18 @@
-import { Button, ControlledFieldText } from "@libs/components";
-import { TLoginRequest, TUserLoginSchema } from "@libs/entities";
 import { FC, ReactElement } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { TLoginRequest, TUserLoginSchema } from "@/entities";
+import { ControlledFieldText, Button } from "@/components";
+import { useGetLocalStorage} from "@/utilities";
+
 export const LoginModule: FC = (): ReactElement => {
+  const [user] = useGetLocalStorage<TLoginRequest[]>('user')
+  const [loginData, setloginData] = useGetLocalStorage<TLoginRequest>("session");
+  const nav = useNavigate();
   const {
     control,
+    handleSubmit,
     formState: { errors },
   } = useForm<TLoginRequest>({
     resolver: zodResolver(TUserLoginSchema),
@@ -14,12 +20,24 @@ export const LoginModule: FC = (): ReactElement => {
     defaultValues: {
       username: "",
       password: "",
+      isAuthenticated:false,
     },
   });
 
+  
+
+const onSubmit = handleSubmit((data) => {
+   user?.some((item) => {
+   if(item?.username === data.username && item?.password === data.password){
+      item.isAuthenticated = true;
+      setloginData(user.find((val)=> val.id === item.id) as TLoginRequest)
+      nav('')
+  } 
+  })
+})
   return (
     <div className="flex items-center justify-center bg-white w-full p-4 ">
-      <form className="flex flex-col gap-y-2 w-3/4 border border-grey-300 rounded-md p-8">
+      <form className="flex flex-col gap-y-2 w-3/4 border border-grey-300 rounded-md p-8" onSubmit={onSubmit}>
         <div className="text-center">
           <h1 className="font-bold text-3xl text-grey-500">Login</h1>
         </div>
