@@ -1,4 +1,4 @@
-import { className, TInput } from '@libs/entities/common';
+import { className, TInput } from '@/entities';
 import { useId, forwardRef } from 'react';
 
 export const InputText = forwardRef<HTMLInputElement, TInput>(

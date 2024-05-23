@@ -1,6 +1,6 @@
-import { InputText } from '@libs/components/atoms';
-import { Fieldset } from '@libs/components/templates';
-import { TInput, TInputMolecule } from '@libs/entities/common';
+import { InputText } from '@/components';
+import { Fieldset } from '@/components';
+import { TInput, TInputMolecule } from '@/entities';
 import { ReactElement, forwardRef } from 'react';
 
 

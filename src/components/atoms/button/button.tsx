@@ -2,7 +2,7 @@ import type { FC, ReactElement } from 'react';
 import { clsx } from 'clsx';
 import { P, match } from 'ts-pattern';
 import { Link } from 'react-router-dom';
-import { TButton } from '@libs/entities/common';
+import { TButton } from '@/entities';
 
 
 export const Button: FC<TButton> = ({

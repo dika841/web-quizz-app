@@ -1,6 +1,6 @@
 import { FC, ReactElement } from 'react';
 import { clsx } from 'clsx';
-import { TLabel } from '@libs/entities/common';
+import { TLabel } from '@/entities';
 
 
 export const Label: FC<TLabel> = (props): ReactElement => {
